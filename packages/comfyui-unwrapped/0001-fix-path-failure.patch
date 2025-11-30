@@ -1,0 +1,17 @@
+diff --git a/main.py b/main.py
+index e1b0f162..bf4128c2 100644
+--- a/main.py
++++ b/main.py
+@@ -72,10 +72,10 @@ def execute_prestartup_script():
+             logging.error(f"Failed to execute startup-script: {script_path} / {e}")
+         return False
+ 
+-    node_paths = folder_paths.get_folder_paths("custom_nodes")
++    node_prestartup_times = []
++    node_paths = [f for f in folder_paths.get_folder_paths("custom_nodes") if os.path.isdir(f)]
+     for custom_node_path in node_paths:
+         possible_modules = os.listdir(custom_node_path)
+-        node_prestartup_times = []
+ 
+         for possible_module in possible_modules:
+             module_path = os.path.join(custom_node_path, possible_module)

@@ -33,6 +33,7 @@ python3.pkgs.buildPythonPackage {
 
   propagatedBuildInputs = [
     python3.pkgs.aiohttp
+    python3.pkgs.av
     python3.pkgs.einops
     python3.pkgs.kornia
     python3.pkgs.numpy
@@ -57,7 +58,7 @@ python3.pkgs.buildPythonPackage {
   ];
 
   patches = [
-    ./0001-fix-version.patch
+    ./0001-fix-path-failure.patch
   ];
 
   postPatch = ''
